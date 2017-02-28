@@ -6,7 +6,7 @@ One basic function of pusher is to condense this:
 
 ```bash
 $ git add *
-$ git commit -m "this is a new commit"
+$ git commit -m "This is a new patch"
 $ git push
 ```
 

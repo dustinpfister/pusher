@@ -1,0 +1,25 @@
+{
+  "name": "pusher",
+  "version": "1.0.16",
+  "description": "A tool to help with pushing commits",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dustinpfister/pusher.git"
+  },
+  "keywords": [
+    "git",
+    "pusher",
+    "tool",
+    "cli"
+  ],
+  "author": "Dustin Pfister",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/dustinpfister/pusher/issues"
+  },
+  "homepage": "https://github.com/dustinpfister/pusher#readme"
+}

@@ -94,6 +94,18 @@ start = function () {
 
 },
 
+runScripts = function () {
+
+    console.log('okay lets get busy.');
+
+    require('./scripts/npm.js').call(function () {
+
+        start();
+
+    });
+
+},
+
 getCount = function () {
 
     require('./js/git_count.js').call('.', function (theCount) {
@@ -104,7 +116,9 @@ getCount = function () {
 
         if (count >= 0) {
 
-            start();
+            //start();
+
+            runScripts();
 
         } else {
 
