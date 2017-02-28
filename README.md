@@ -1,6 +1,6 @@
 # pusher
 
-This is a simple tool I have made to help better manage my work flow when working on a project.
+This is a simple tool I have made to help better manage my work flow when working on a project. It automates some representative typing, 
 
 
 The basic usage would be something like this:
@@ -20,7 +20,7 @@ which would do the following:
 
 ## git_isgit.js
 
-Is git js is a simple module I put together where I would pass it a path, and a callback, and the module would give me a true or false response via the callback if the path is a git folder.
+git_isgit.js is a simple module I put together where I pass it a path, and a callback, and the module would give me a true or false response via the callback if the path is a git folder.
 
 This can be preformed manually in the CLI like this:
 
@@ -45,7 +45,7 @@ require('./js/git_isgit.js').check('.',function (isGitFolder) {
 });
 ```
 
-it will cause an error if false, but return true to the standard out if it is a git folder.
+It will cause an error if false, but return true to the standard out if it is a git folder.
 
 ## git_count.js
 
