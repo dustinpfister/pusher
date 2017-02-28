@@ -1,21 +1,21 @@
 /*
- *  isGit.js
+ *     git_isgit.js
  *
- *  just check if a folder is a git folder, return true or false
+ *     just check if a folder is a git folder, return true or false
  *
- *    require('./js/isgit.js').check('.',function (isGitFolder) {
+ *     require('./js/isgit.js').check('.',function (isGitFolder) {
  *
- *        if (isGitFolder) {
+ *         if (isGitFolder) {
  *
- *            console.log('yes, this is a git folder.');
+ *             console.log('yes, this is a git folder.');
  *
- *        } else {
+ *         } else {
  *
- *            console.log('not a git folder');
+ *             console.log('not a git folder');
  *
- *        }
+ *         }
  *
- *     });
+ *      });
  *
  */
 

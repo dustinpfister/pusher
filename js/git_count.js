@@ -1,5 +1,5 @@
 /*
- *  git_count.js
+ *    git_count.js
  *
  *    gets a count of commits for the master branch
  *

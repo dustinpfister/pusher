@@ -1,7 +1,7 @@
 /*
- *  git_addall.js
+ *    git_commit.js
  *
- *    gets a count of commits for the master branch
+ *    make a commit
  *
  */
 

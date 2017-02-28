@@ -2,18 +2,26 @@
 
 This is a simple tool I have made to help better manage my work flow when working on a project. It automates some representative typing, 
 
+One basic function of pusher is to condense this:
 
-The basic usage would be something like this:
+```bash
+$ git add *
+$ git commit -m "this is a new commit"
+$ git push
+```
+
+into this:
 
 ```bash
 $ pusher -m "This is a new patch"
 ```
 
-which would do the following:
+However it also does a few more things before doing so.
 
-* Checks if the current working folder is a git folder
-* If it is a git folder it will preform a $git status to check for uncommitted changes.
-* If there are changes it will run an array of scripts that do repetitive tasks that must be preformed on each version increase.
+The process so far is something like this:
+
+* Pusher checks if the current working folder is a git folder
+* if so it will run a collection of scripts that complete tasks that need to happen with each new commmit, such as bumping up a version number.
 * After running scripts it will do a $ git add *
 * Then a $ git commit -m "pusher c[cNumber]: This is a new patch"
 * And finally a $ git push

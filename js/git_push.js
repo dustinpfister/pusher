@@ -1,6 +1,7 @@
 /*
- *  isGit.js
+ *    git_push.js
  *
+ *    push a commit to the remote
  *
  */
 

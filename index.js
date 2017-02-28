@@ -1,87 +1,149 @@
 
 var spawn = require('child_process').spawn,
 cwd = '.',
-mess = 'git_reset',
+mess = '',
 prepPush = true,
 reset = false,
 dontPush = false,
+count = -1,
 
 log = function (mess) {
 
     console.log('pusher: ' + mess);
 
-};
+},
 
-require('./js/git_isgit.js').check('.', function (isGitFolder) {
+start = function () {
 
-    // will return true if a git folder
+    require('./js/git_isgit.js').check('.', function (isGitFolder) {
 
-    if (isGitFolder) {
+        // will return true if a git folder
 
-        log('it is a git folder.');
+        if (isGitFolder) {
 
-        if (prepPush) {
+            log('it is a git folder.');
 
-            require('./js/git_addall.js').call('.', function (success) {
+            if (prepPush) {
 
-                if (success) {
+                require('./js/git_addall.js').call('.', function (success) {
 
-                    log('add all success');
+                    if (success) {
 
-                    require('./js/git_commit.js').call('.', mess, function (success) {
+                        log('add all success');
 
-                        log('commit success: ' + success);
+                        require('./js/git_commit.js').call('.', mess, function (success) {
 
-                        if (success && !dontPush) {
+                            log('commit success: ' + success);
 
-                            log('pushing');
+                            if (success && !dontPush) {
 
-                            require('./js/git_push.js').call('.', function (success) {
+                                log('pushing');
 
-                                if (success) {
+                                require('./js/git_push.js').call('.', function (success) {
 
-                                    log('looks like we pushed.');
+                                    if (success) {
 
-                                }
+                                        log('looks like we pushed.');
 
-                            });
+                                    }
 
-                        }
+                                });
 
-                    });
+                            }
 
-                } else {
+                        });
 
-                    log('add all fail');
+                    } else {
 
-                }
+                        log('add all fail');
 
-            });
-
-        } else {
-
-            log('will not prep or push');
-
-            if (reset) {
-
-                require('./js/git_reset.js').call('.', function () {
-
-                    log('okay');
+                    }
 
                 });
 
             } else {
 
-                log('will not reset');
+                log('will not prep or push');
+
+                if (reset) {
+
+                    require('./js/git_reset.js').call('.', function () {
+
+                        log('reset okay');
+
+                    });
+
+                } else {
+
+                    log('will not reset');
+
+                }
 
             }
 
+        } else {
+
+            log('not a git folder, you may need to do a $git init , and set up an origin.');
+
         }
 
-    } else {
+    });
 
-        log('not a git folder, you may need to do a $git init , and set up an origin.');
+},
 
-    }
+// start by looking at arguments
+processArgv = function () {
 
-});
+    var aurgs = process.argv.splice(2, process.argv.length);
+
+    console.log(aurgs);
+
+    aurgs.forEach(function (text, index) {
+
+        switch (text) {
+
+            // set message
+        case '-m':
+
+            if (aurgs[index + 1]) {
+
+                mess = aurgs[index + 1];
+
+            }
+
+            break;
+
+            //reset flag = true
+        case '-r':
+
+            reset = true;
+
+            // we will not be preping or pushing also then
+            prepPush = false;
+            dontPush = true;
+
+            break;
+
+            // dont push
+        case '-dp':
+
+            dontPush = true;
+
+            break
+
+        }
+
+    })
+
+    log('mess = ' + mess);
+    log('prepPush = ' + prepPush);
+    log('reset = ' + reset);
+    log('dontPush =' + dontPush);
+    log('count = ' + count);
+
+    // start with values
+    start();
+
+};
+
+processArgv();

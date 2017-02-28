@@ -1,7 +1,7 @@
 /*
- *  git_addall.js
+ *    git_addall.js
  *
- *    gets a count of commits for the master branch
+ *    stage all changes that have been made
  *
  */
 
