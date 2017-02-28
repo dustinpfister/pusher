@@ -29,9 +29,15 @@ exports.call = function (done) {
                 // set version
                 pkg.version = version.join('.');
 
-                console.log('version bumped to: ' + pkg.version);
+                console.log('bumping package.json');
 
-                done();
+                fs.writeFile('package.json', JSON.stringify(pkg), function () {
+
+                    console.log('check it out');
+
+                    done();
+
+                })
 
             } catch (e) {
 

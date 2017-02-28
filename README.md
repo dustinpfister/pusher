@@ -101,4 +101,22 @@ $ git reset HEAD^
 
 ## Example scripts
 
-The selection of scripts that will be called depend of course on the project. For example if it is a node project, it would be nice to have a script that will bump the patch count of the version number in package.json with each call of push. However it is silly to use that if it is a pure front-end only project. In some cases 
+The selection of scripts that will be called depend of course on the project. For example if it is a node project, it would be nice to have a script that will bump the patch count of the version number in package.json with each call of push. However it is silly to use that if it is a pure front-end only project.
+
+regardless if you use node.js or not for your project, pusher will look for a package.json file, and follow what is in any "pusher" key that it finds. So say you have a script called npm.js, that will bump up the patch number of the version number in packgae.json each time it is called.
+
+
+You will want the package.json file in the root name space to at least look like this:
+```
+{
+  "version": "1.0.0",
+  "pusher": {
+
+    "npm": "./scripts/npm.js"
+  
+  }
+
+}
+```
+
+pusher will execute any "call" method that is exported in npm.js
