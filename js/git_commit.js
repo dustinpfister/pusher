@@ -10,7 +10,7 @@ var spawn = require('child_process').spawn,
 checkFolder = function (cwd, mess, done) {
 
     // check if the folder is a git folder
-    var isGit = spawn('git', ['commit', '-m', 'pusher: ' + mess], {
+    var isGit = spawn('git', ['commit', '-m', mess], {
             cwd : cwd
         });
 

@@ -31,7 +31,10 @@ start = function () {
 
                         log('add all success');
 
-                        require('./js/git_commit.js').call('.', mess, function (success) {
+                        require('./js/git_commit.js').call(
+                            '.',
+                            'pusher c' + count + ': ' + mess,
+                            function (success) {
 
                             log('commit success: ' + success);
 
@@ -91,6 +94,28 @@ start = function () {
 
 },
 
+getCount = function () {
+
+    require('./js/git_count.js').call('.', function (theCount) {
+
+        count = theCount;
+
+        log('count = ' + count);
+
+        if (count >= 0) {
+
+            start();
+
+        } else {
+
+            log('problem with the count.');
+
+        }
+
+    });
+
+},
+
 // start by looking at arguments
 processArgv = function () {
 
@@ -139,10 +164,9 @@ processArgv = function () {
     log('prepPush = ' + prepPush);
     log('reset = ' + reset);
     log('dontPush =' + dontPush);
-    log('count = ' + count);
 
-    // start with values
-    start();
+    // get the count
+    getCount();
 
 };
 

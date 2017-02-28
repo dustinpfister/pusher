@@ -15,7 +15,7 @@ checkFolder = function (cwd, done) {
 
     // check if the folder is a git folder
     //var isGit = exec('git reset HEAD\x5E', {
-		var isGit = spawn('git', ['reset', 'HEAD^'], {
+    var isGit = spawn('git', ['reset', 'HEAD^'], {
             cwd : cwd
         });
 
@@ -33,9 +33,9 @@ checkFolder = function (cwd, done) {
 
     isGit.on('close', function (code) {
 
-	    console.log('reset is closing with this code');
-	    console.log(code);
-	
+        console.log('reset is closing with this code');
+        console.log(code);
+
         done(true);
 
     });
