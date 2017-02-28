@@ -15,17 +15,23 @@ checkFolder = function (cwd, done) {
 
     isGit.stdout.on('data', function (data) {
 
-        done(true);
+        //done(true);
+        console.log(data.toString('utf8'));
 
     });
 
     isGit.stderr.on('data', function (data) {
 
-        done(false);
+        //done(false);
+        console.log(data.toString('utf8'));
 
     });
 
-    isGit.on('close', function (code) {});
+    isGit.on('close', function (code) {
+
+        done(true);
+
+    });
 
 };
 

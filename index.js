@@ -1,7 +1,7 @@
 
 var spawn = require('child_process').spawn,
 cwd = '.',
-mess = 'dontPush bool',
+mess = 'git_push.js speaks',
 dontPush = false,
 
 log = function (mess) {
