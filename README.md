@@ -1,6 +1,10 @@
 # pusher
 
-This is a simple tool I have made to help better manage my work flow when working on a project. It automates some repetitive typing, but can also be used to run some scripts that should be called on each commit.
+This is a simple tool I have made to help better manage my work flow when working on a project. It automates some repetitive typing, but can also be used to run some scripts that should be called on each commit. It can be considered a kind of pre-release tool.
+
+## why pusher?
+
+I am sure there are many great tools out there all ready, this is just my take on such a project in the spirit of "If you want a job done right you have to do it yourself". I also started working on this as a way to learn how to make CLI tools with node.js, as well as a motivator to get more professional with all kinds of process that should be called before committing to a master branch.
 
 One basic function of pusher is to condense this:
 
@@ -120,3 +124,14 @@ You will want the package.json file in the root name space to at least look like
 ```
 
 pusher will execute any "call" method that is exported in npm.js
+
+## Other tools like this?
+
+When ever I get an idea for a project I take a look to see if there is all ready something like it. It is true that is almost always the case, so here are some other projects of interest to look into if I never finish this.
+
+
+### release-it
+
+[release-it](https://www.npmjs.com/package/release-it)
+
+looks like a good one for doing an automatic bump version, commit, tag, push, ect
