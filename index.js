@@ -104,8 +104,6 @@ getCount = function () {
 
         if (count >= 0) {
 
-            mess = 'pusher ' + count + ' - ' + mess;
-
             start();
 
         } else {
