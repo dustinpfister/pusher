@@ -1,8 +1,9 @@
 
 var spawn = require('child_process').spawn,
 cwd = '.',
-mess = 'prepPush bool',
+mess = 'git_reset',
 prepPush = true,
+reset = false,
 dontPush = false,
 
 log = function (mess) {
@@ -60,6 +61,20 @@ require('./js/git_isgit.js').check('.', function (isGitFolder) {
         } else {
 
             log('will not prep or push');
+
+            if (reset) {
+
+                require('./js/git_reset.js').call('.', function () {
+
+                    log('okay');
+
+                });
+
+            } else {
+
+                log('will not reset');
+
+            }
 
         }
 
