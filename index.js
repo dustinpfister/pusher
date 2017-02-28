@@ -33,7 +33,7 @@ start = function () {
 
                         require('./js/git_commit.js').call(
                             '.',
-                            'pusher ' + String(count) + ' ; ' + mess,
+                            'pusher ' + count.toString(16) + ' - ' + mess,
                             function (success) {
 
                             log('commit success: ' + success);
