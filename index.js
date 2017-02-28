@@ -1,6 +1,8 @@
 
 var spawn = require('child_process').spawn,
 cwd = '.',
+mess = 'dontPush bool',
+dontPush = false,
 
 log = function (mess) {
 
@@ -22,13 +24,13 @@ require('./js/git_isgit.js').check('.', function (isGitFolder) {
 
                 log('add all success');
 
-                require('./js/git_commit.js').call('.', 'fixed mistake with messages', function (success) {
+                require('./js/git_commit.js').call('.', mess, function (success) {
 
                     log('commit success: ' + success);
 
-                    if (success) {
+                    log('ready to push');
 
-                        log('ready to push');
+                    if (success && !dontPush) {
 
                         require('./js/git_push.js').call('.', function (success) {
 
@@ -54,7 +56,7 @@ require('./js/git_isgit.js').check('.', function (isGitFolder) {
 
     } else {
 
-        log('not a git folder');
+        log('not a git folder, you may need to do a $git init , and set up an origin.');
 
     }
 
