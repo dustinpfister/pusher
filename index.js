@@ -22,11 +22,13 @@ require('./js/git_isgit.js').check('.', function (isGitFolder) {
 
                 log('add all success');
 
-                require('./js/git_commit.js').call('.', 'pushing', function (success) {
+                require('./js/git_commit.js').call('.', 'fixed mistake with messages', function (success) {
 
                     log('commit success: ' + success);
 
                     if (success) {
+
+                        log('ready to push');
 
                         require('./js/git_push.js').call('.', function (success) {
 

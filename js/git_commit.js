@@ -33,7 +33,7 @@ checkFolder = function (cwd, mess, done) {
 exports.call = function (cwd, mess, done) {
 
     cwd = cwd || './';
-    mess = mess | '';
+    mess = mess || '';
     done = done || function (success) {
         console.log('git_commit.js : ' + sucess);
     };
